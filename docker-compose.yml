@@ -1,0 +1,13 @@
+version: '3'
+services:
+  postgres:
+    container_name: users_app_postgres
+    image: postgres:12.2-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: users_app
+    volumes:
+      - ./data/postgres-data:/var/lib/postgresql/data
+    ports:
+      - '0.0.0.0:5432:5432'
